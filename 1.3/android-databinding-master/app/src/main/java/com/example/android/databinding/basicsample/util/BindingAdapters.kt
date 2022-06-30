@@ -25,19 +25,14 @@ fun setProgress(progressBar: ProgressBar, likes: Int, max: Int){
 
 @BindingAdapter("app:popularityIcon")
 fun popularityIcon(view: ImageView, popularity: Popularity) {
-
     val color = getAssociatedColor(popularity, view.context)
-
     ImageViewCompat.setImageTintList(view, ColorStateList.valueOf(color))
-
     view.setImageDrawable(getDrawablePopularity(popularity, view.context))
 }
 
 @BindingAdapter("app:progressTint")
 fun tintPopularity(view: ProgressBar, popularity: Popularity) {
-
     val color = getAssociatedColor(popularity, view.context)
-
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
         view.progressTintList = ColorStateList.valueOf(color)
     }
