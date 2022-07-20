@@ -53,6 +53,7 @@ android {
 dependencies {
     // dependencies are defined in ext arrays in coroutines-codelab/build.gradle
     implementation libraries
+    implementation 'androidx.test:core-ktx:1.4.0'
     kapt librariesKapt
     debugImplementation librariesDebug
 

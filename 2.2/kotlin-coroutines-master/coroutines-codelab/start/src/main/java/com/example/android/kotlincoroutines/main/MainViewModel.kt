@@ -22,6 +22,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.android.kotlincoroutines.util.BACKGROUND
 import com.example.android.kotlincoroutines.util.singleArgViewModelFactory
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -118,21 +119,22 @@ class MainViewModel(private val repository: TitleRepository) : ViewModel() {
         _snackBar.value = null
     }
 
-    /**
-     * Refresh the title, showing a loading spinner while it refreshes and errors via snackbar.
-     */
     fun refreshTitle() {
-        // TODO: Convert refreshTitle to use coroutines
-        _spinner.value = true
-        repository.refreshTitleWithCallbacks(object : TitleRefreshCallback {
-            override fun onCompleted() {
-                _spinner.postValue(false)
-            }
+        launchDataLoad {
+            repository.refreshTitle()
+        }
+    }
 
-            override fun onError(cause: Throwable) {
-                _snackBar.postValue(cause.message)
-                _spinner.postValue(false)
+    private fun launchDataLoad(block: suspend () -> Unit): Job {
+        return viewModelScope.launch {
+            try {
+                _spinner.value = true
+                block()
+            }catch (error: TitleRefreshError){
+                _snackBar.value = error.message
+            }finally {
+                _spinner.value = false
             }
-        })
+        }
     }
 }
