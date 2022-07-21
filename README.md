@@ -49,9 +49,3 @@
 <br>https://proandroiddev.com/traditional-mvvm-with-jetpack-compose-and-stateflow-7ca934e12784
 <br><br>
 <br>
-5.1 Uncle Bob Clean Architecture 를 통한 빌드 모듈 분할
-<br>https://leveloper.tistory.com/205
-<br><br>
-5.2 테스트 코드 작성
-<br>https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics?hl=ko#8
-<br><br>

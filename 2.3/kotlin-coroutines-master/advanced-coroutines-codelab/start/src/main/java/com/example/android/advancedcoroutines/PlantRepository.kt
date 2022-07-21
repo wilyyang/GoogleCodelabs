@@ -48,8 +48,13 @@ class PlantRepository private constructor(
         })
     }
 
-    fun getPlantsWithGrowZoneFlow(growZoneNumber: GrowZone): Flow<List<Plant>>{
-        return plantDao.getPlantsWithGrowZoneNumberFlow(growZoneNumber.number)
+    fun getPlantsWithGrowZoneFlow(growZone: GrowZone): Flow<List<Plant>>{
+        return plantDao.getPlantsWithGrowZoneNumberFlow(growZone.number)
+            .map { plantList ->
+                val sortOrderFromNetwork = plantListSortOrderCache.getOrAwait()
+                val nextValue = plantList.applyMainSafeSort(sortOrderFromNetwork)
+                nextValue
+            }
     }
 
     fun getPlantsWithGrowZone(growZone: GrowZone) =
