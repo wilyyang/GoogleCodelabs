@@ -1,3 +1,5 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Basics Codelab</string>
+    <string name="show_less" tools:ignore="ExtraTranslation">Show less</string>
+    <string name="show_more" tools:ignore="ExtraTranslation">Show more</string>
 </resources>
