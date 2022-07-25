@@ -29,10 +29,16 @@
 3.1 Compose 를 활용한 기본 UI
 <br>https://developer.android.com/codelabs/jetpack-compose-basics?hl=en#6
 <br><br>
-3.2 Compose UI Animation
+3.2 Compose 레이아웃
+<br>https://developer.android.com/codelabs/jetpack-compose-layouts#0
+<br><br>
+3.3 Compose 상태 사용
+<br>https://developer.android.com/codelabs/jetpack-compose-state#0
+<br><br>
+3.4 Compose UI Animation
 <br>https://developer.android.com/codelabs/jetpack-compose-animation?hl=en#0
 <br><br>
-3.3 Jetpack Navigation 을 통한 Compose 이동
+3.5 Jetpack Navigation 을 통한 Compose 이동
 <br>https://developer.android.com/codelabs/jetpack-compose-navigation?hl=en#0
 <br><br>
 <br>
