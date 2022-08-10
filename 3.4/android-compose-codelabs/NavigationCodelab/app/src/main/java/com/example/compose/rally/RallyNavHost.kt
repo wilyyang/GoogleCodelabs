@@ -50,6 +50,7 @@ fun RallyNavHost(
         composable(
             route = SingleAccount.routeWithArgs,
             arguments = SingleAccount.arguments,
+            deepLinks = SingleAccount.deepLinks
         ) { navBackStackEntry ->
             val accountType =
                 navBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
